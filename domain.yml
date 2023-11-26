@@ -1,0 +1,100 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - room_type
+  - vacation_period
+  - customer_details
+  - book_room
+  - check_availability
+  - nearby_recommendation
+  - thank
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_ask_room_type  #done 
+  - action_confirm_room_type #done
+  - action_ask_vacation_period  #done
+  - action_confirm_vacation_period  #done
+  - action_ask_customer_details   #done
+  - action_confirm_customer_details  #done
+  - action_ask_check_in_date   
+  - action_check_in_date_confirmation
+  - action_check_availability
+  - action_nearby_recommendations
+  - action_confirm_customer_status   #done
+  - action_ask_customer_status  #done
+
+slots:
+
+  start_date:
+    type: text
+    mappings:
+    - type: from_intent
+      intent: vacation_period
+
+  end_date:
+    type: text
+    mappings:
+    - type: from_intent
+      intent: vacation_period
+  gendre:
+    type: text
+    mappings:
+    - type: from_intent
+      value: my_value
+      intent: customer_details
+  name:
+    type : text
+    mappings:
+    - type: from_intent
+      value: my_value
+      intent: customer_details
+  location:
+    type: text
+    mappings:
+    - type: from_intent
+      value: my_value
+      intent: customer_details
+  marital_status:
+    type: text
+    mappings:
+    - type: from_intent
+      value: my_value
+      intent: customer_status
+  children_count:
+    type: text
+    mappings:
+    - type: from_intent
+      value: my_value
+      intent: customer_status
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

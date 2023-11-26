@@ -1,0 +1,60 @@
+version: "3.1"
+
+stories:
+
+#- story: Book a room
+#  steps:
+#  - intent: book_room 
+#  - action: action_ask_check_in_date
+#  - slot_was_set:
+#    - check_in_date: "2023-12-01"
+#  - action: action_check_in_date_confirmation 
+
+- story: Check room availability
+  steps:
+  - intent: check_availability 
+  - action: action_check_availability
+
+- story: Get nearby recommendations
+  steps:
+  - intent: nearby_recommendation
+  - action: action_nearby_recommendations
+
+- story: Book a room with details
+  steps:
+  - intent: book_room
+  - action: action_ask_room_type
+  - intent: room_type
+  - action: action_confirm_room_type
+  - intent: vacation_period
+  - action: action_ask_vacation_period
+  - slot_was_set:
+    - start_date: "2023-12-01"
+    - end_date: "2023-12-05"
+  - action: action_confirm_vacation_period
+  - intent: customer_details
+  - action: action_ask_customer_details
+  - slot_was_set:
+    - gendre: "Male"
+    - name: "John Doe"
+    - location: "New York"
+  - action: action_confirm_customer_details
+  - intent: customer_status
+  - action: action_ask_customer_status
+
+  - or:
+      - slot_was_set:
+          - gendre: male
+      - slot_was_set:
+          - gendre: female
+  - or:
+      - slot_was_set:
+        - marital_status: "single"
+      - slot_was_set:
+        - marital_status: "married"
+  - slot_was_set:    
+    - name: "John Doe"  
+    - children_count: "2"
+  - action: action_confirm_customer_status
+
+  
