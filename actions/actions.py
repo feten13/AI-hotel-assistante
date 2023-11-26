@@ -75,7 +75,7 @@ class ActionConfirmVacationPeriod(Action):
     
     
     
-class ActionAskCustomerDetailsd(Action):
+class ActionAskCustomerDetails(Action):
     def name(self) -> Text:
         return "action_ask_customer_details"
 

@@ -55,44 +55,44 @@ slots:
   start_date:
     type: text
     mappings:
-    - type: from_intent
-      intent: vacation_period
+    - type: from_entity
+      entity: vacation_period
 
   end_date:
     type: text
     mappings:
-    - type: from_intent
-      intent: vacation_period
+    - type: from_entity
+      entity: vacation_period
   gendre:
     type: text
     mappings:
-    - type: from_intent
+    - type: from_entity
       value: my_value
-      intent: customer_details
+      entity: customer_details
   name:
     type : text
     mappings:
-    - type: from_intent
+    - type: from_entity
       value: my_value
-      intent: customer_details
+      entity: customer_details
   location:
     type: text
     mappings:
-    - type: from_intent
+    - type: from_entity
       value: my_value
-      intent: customer_details
+      entity: customer_details
   marital_status:
     type: text
     mappings:
-    - type: from_intent
+    - type: from_entity
       value: my_value
-      intent: customer_status
+      entity: customer_status
   children_count:
     type: text
     mappings:
-    - type: from_intent
+    - type: from_entity
       value: my_value
-      intent: customer_status
+      entity: customer_status
 
 
 session_config:

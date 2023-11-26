@@ -114,6 +114,8 @@ nlu:
 - intent: customer_status
   examples: |
     - Married with [number] children
+    - single , no kids
+    - divorced with [number] children
 - intent: book_room
   examples: |
     - I want to book a room

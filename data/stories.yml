@@ -11,9 +11,8 @@ stories:
 #  - action: action_check_in_date_confirmation 
 
 - story: Check room availability
-  steps:
-  - intent: check_availability 
-  - action: action_check_availability
+
+  
 
 - story: Get nearby recommendations
   steps:
@@ -31,6 +30,7 @@ stories:
   - slot_was_set:
     - start_date: "2023-12-01"
     - end_date: "2023-12-05"
+  - action: action_check_availability
   - action: action_confirm_vacation_period
   - intent: customer_details
   - action: action_ask_customer_details
