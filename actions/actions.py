@@ -71,8 +71,61 @@ class ActionConfirmVacationPeriod(Action):
         dispatcher.utter_message(f"You've chosen the vacation period from {start_date} to {end_date}.")
         return []
     
+from rasa_sdk.forms import FormAction
+import pandas as pd 
+class ActionCheckAvailability(Action):
+    aden_calendre=pd.read_csv
+    def name(self) -> Text:
+        return "action_check_availability"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message("Let me check the availability for you.")
+        
+        return []    
     
-    
+
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
+import pandas as pd
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
+class ActionCheckAvailabilityConfirmation(Action):
+    aden_calendre = pd.read_csv("aden_calendre.csv")
+
+    def name(self) -> Text:
+        return "action_check_availability_confirmation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        start_date = tracker.get_slot("start_date")
+        end_date = tracker.get_slot("end_date")
+        room_type = tracker.get_slot("room_type")
+        
+        start_date = pd.to_datetime(start_date)
+        end_date = pd.to_datetime(end_date)
+        
+        
+        if any((start_date <= date <= end_date) for date in self.aden_calendre['dates']):
+            dispatcher.utter_message("Sorry, there is no available rooms in this date range.")
+        else:
+            
+            if room_type in self.aden_calendre['room'].values:
+                dispatcher.utter_message(f"Sorry, there is no available {room_type} rooms in this date range.")
+            else:
+                dispatcher.utter_message(f"Your reservation for {room_type} rooms in this date range is confirmed.")
+        
+        return []
+
+
     
     
 class ActionAskCustomerDetails(Action):
@@ -137,3 +190,32 @@ class ActionConfirmCustomerstatus(Action):
           
         dispatcher.utter_message(f"So {gn} {name} {status} with {number} children .")
         return []    
+    
+
+
+import pandas as pd
+import random
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
+class ActionNearbyRecommendations(Action):
+    aden_recommendation = pd.read_csv("aden_recommendation.csv")
+
+    def name(self) -> Text:
+        return "action_nearby_recommendations"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message("Sure, I can help you with nearby recommendations.")
+        
+        
+        recommendation = random.choice(self.aden_recommendation['column_containing_recommendations'])
+        
+        dispatcher.utter_message(recommendation)
+        
+        return []
+
+    

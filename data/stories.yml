@@ -24,6 +24,11 @@ stories:
   - intent: book_room
   - action: action_ask_room_type
   - intent: room_type
+  - or: 
+    - slot_was_set:
+      - room_type: "single"
+    - slot_was_set: 
+      -room_type: "duplex"
   - action: action_confirm_room_type
   - intent: vacation_period
   - action: action_ask_vacation_period

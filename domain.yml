@@ -12,9 +12,9 @@ intents:
   - vacation_period
   - customer_details
   - book_room
-  - check_availability
   - nearby_recommendation
   - thank
+  - customer_status
 
 responses:
   utter_greet:
@@ -43,9 +43,10 @@ actions:
   - action_confirm_vacation_period  #done
   - action_ask_customer_details   #done
   - action_confirm_customer_details  #done
-  - action_ask_check_in_date   
-  - action_check_in_date_confirmation
+  #- action_ask_check_in_date   
+  #- action_check_in_date_confirmation
   - action_check_availability
+  - action_check_availability_availability
   - action_nearby_recommendations
   - action_confirm_customer_status   #done
   - action_ask_customer_status  #done
@@ -93,7 +94,12 @@ slots:
     - type: from_entity
       value: my_value
       entity: customer_status
-
+  room_type: 
+    - type: text
+    mappings:
+    - type: from_entity
+      value: my_value
+      entity: room_type
 
 session_config:
   session_expiration_time: 60

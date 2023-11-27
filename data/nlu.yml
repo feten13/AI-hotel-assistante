@@ -49,6 +49,14 @@ nlu:
     - don't like that
     - no way
     - not really
+- intent: thank
+  examples: |
+    - thank you 
+    - thanks
+    - appreciate it
+    - great, thanks!
+    - okay, thanks.
+  
 
 - intent: mood_great
   examples: |
@@ -120,4 +128,10 @@ nlu:
   examples: |
     - I want to book a room
     - Can I reserve a room?
-   
+
+- intent: nearby_recommendation 
+  examples: |
+    - what historical monimens near aden hotel
+    - could you recommend me good locations near the hotel
+    - what is the best nearby restaurents
+    - can i get some recommendations for places around here
