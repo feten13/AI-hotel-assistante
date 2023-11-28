@@ -2,6 +2,7 @@ version: "3.1"
 
 rules:
 
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -12,25 +13,26 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Activate room_type
+- rule: Activate book_room
   steps:
-  - intent: room_type
-  - action: action_ask_room_type
+  - intent: book_room
+  - action: action_ask_check_in_date
 
 - rule: Activate vacation_period
   steps:
   - intent: vacation_period
   - action: action_ask_vacation_period
 
+- rule: Activate room_type
+  steps:
+  - intent: room_type
+  - action: action_ask_room_type
+
 - rule: Activate customer_details
   steps:
   - intent: customer_details
   - action: action_ask_customer_details  
 
-- rule: Activate book_room
-  steps:
-  - intent: book_room
-  - action: action_ask_check_in_date
 
 - rule: Activate check_availability
   steps:
