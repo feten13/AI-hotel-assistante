@@ -9,15 +9,16 @@ stories:
 
 - story: Book a room with details
   steps:
-  - intent: book_room
-  - action: action_ask_vacation_period
-  - intent: vacation_period
+  - intent: book_room #done
+  - action: action_ask_check_in_date #done
+  - action: action_ask_vacation_period #done
+  - intent: vacation_period #done
   - slot_was_set:
     - start_date: "2023-12-01"
     - end_date: "2023-12-05"
-  - action: action_confirm_vacation_period
-  - action: action_ask_room_type
-  - intent: room_type
+  - action: action_confirm_vacation_period #done
+  - action: action_ask_room_type #done
+  - intent: room_type #done
   - or: 
     - slot_was_set:
       - room_type: "single"
@@ -26,10 +27,10 @@ stories:
     - slot_was_set: 
       - room_type: "suite"  
   - action: action_confirm_room_type  
-  - action: action_check_availability
+  - action: action_check_availability #done
   - action: action_check_availability_confirmation
-  - action: action_ask_customer_details
-  - intent: customer_details
+  - action: action_ask_customer_details #done
+  - intent: customer_details #done
   - slot_was_set:
     - gendre: "Male"
     - name: "John Doe"
@@ -55,5 +56,5 @@ stories:
 
 - story: Get nearby recommendations
   steps:
-  - intent: nearby_recommendation
-  - action: action_nearby_recommendations
+  - intent: nearby_recommendation #done
+  - action: action_nearby_recommendations #done
