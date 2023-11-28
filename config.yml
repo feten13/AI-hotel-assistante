@@ -62,6 +62,9 @@ pipeline:
     analyzer: "char_wb"
     min_ngram: 1
     max_ngram: 4
+  - name: ConveRTFeaturizer
+    model_url: "https://models.poly-ai.com/convert/v1/model.tar.gz"
+    cache_dir: "cache_dir"
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper
