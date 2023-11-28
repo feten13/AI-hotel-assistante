@@ -49,6 +49,7 @@ nlu:
     - don't like that
     - no way
     - not really
+
 - intent: thank
   examples: |
     - thank you 
@@ -119,11 +120,13 @@ nlu:
     - I'm a [gendre](gendre), My name is [name](name), and I'm from [location](location)
     - I'm from [location](location), I'm a [gendre](gendre), My name is [name](name)
     - I'm [name](name), a [gendre](gendre), I live in [location](location)
+
 - intent: customer_status
   examples: |
     - [Married](marital_status) with [number] (children_count) children
     - [single](marital_status) , [no kids] (children_count==0)
     - [divorced](marital_status) with [number] (children_count) children
+
 - intent: book_room
   examples: |
     - I want to book a room
@@ -135,3 +138,13 @@ nlu:
     - could you recommend me good locations near the hotel
     - what is the best nearby restaurents
     - can i get some recommendations for places around here
+
+- intent: check_availability
+  examples: |
+    - please wait, I'll check the availabity of the room
+    - let me see if your request is available
+
+
+
+
+
