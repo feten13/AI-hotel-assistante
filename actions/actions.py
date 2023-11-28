@@ -228,5 +228,30 @@ class ActionNearbyRecommendations(Action):
         dispatcher.utter_message(recommendation)
         
         return []
-
     
+    
+class ActionAskCheckInDate(Action):
+
+    def name(self) -> Text:
+        return "action_ask_check_in_date"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message("In which date you want to make your reservation ?")
+        
+        return []    
+
+class ActionAskCheckInDateComfirmation(Action):
+    
+    def name(self) -> Text:
+        return "action_check_in_date_confirmation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message("Do you want to comfirm this reservation ?")
+        
+        return []       
