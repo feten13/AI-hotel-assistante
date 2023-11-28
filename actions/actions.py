@@ -74,7 +74,7 @@ class ActionConfirmVacationPeriod(Action):
 from rasa_sdk.forms import FormAction
 import pandas as pd 
 class ActionCheckAvailability(Action):
-    aden_calendre=pd.read_csv
+    #aden_calendre=pd.read_csv
     def name(self) -> Text:
         return "action_check_availability"
 
@@ -82,7 +82,7 @@ class ActionCheckAvailability(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        dispatcher.utter_message("Let me check the availability for you.")
+        dispatcher.utter_message("Let me check our availability please.")
         
         return []    
     
@@ -169,6 +169,17 @@ class ActionAskCustomerstatus(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message("Can you tell me if your married , and if you have children with you ? ")
+        return []
+
+class utter_greet(Action):
+    def name(self) -> Text:
+        return "utter_greet"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        responses = tracker.get_responses("utter_greet")    
+        dispatcher.utter_message(responses)
         return []
 
 class ActionConfirmCustomerstatus(Action):

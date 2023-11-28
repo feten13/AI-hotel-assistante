@@ -103,27 +103,27 @@ nlu:
      
 - intent: room_type
   examples: |
-    - I want to book a depluxe room
-    - I want to book a single room
-    - Any suites available?
+    - I want to book a [deluxe]{"entity": "room_type"} room
+    - I want to book a [single] {"entity": "room_type"} room
+    - Any [suites] {"entity": "room_type"} is available?
     - Any single room available?
 
 - intent: vacation_period
   examples: |
-    - I'll be staying from [start_date] to [end_date]
-    - What's the availability from June 1st to June 7th?
-    - What's the availability [start_date] to [end_date]
+    - I'll be staying from [start_date] (start_date)  to [end_date](end_date)
+    - What's the availability from [June 1st] {"entity": "start_date"} to [June 7th] {"entity": "end_date"}?
+    - What's the availability [start_date](start_date) to [end_date](end_date)
 
 - intent: customer_details
   examples: |
-    - I'm a [gendre], My name is [name], and I'm from [location]
-    - I'm from [location], I'm a [gendre], My name is [name] 
-    - I'm [name], a [gendre], I live in [location]
+    - I'm a [gendre](gendre), My name is [name](name), and I'm from [location](location)
+    - I'm from [location](location), I'm a [gendre](gendre), My name is [name](name)
+    - I'm [name](name), a [gendre](gendre), I live in [location](location)
 - intent: customer_status
   examples: |
-    - Married with [number] children
-    - single , no kids
-    - divorced with [number] children
+    - [Married](marital_status) with [number] (children_count) children
+    - [single](marital_status) , [no kids] (children_count==0)
+    - [divorced](marital_status) with [number] (children_count) children
 - intent: book_room
   examples: |
     - I want to book a room
