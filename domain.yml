@@ -12,6 +12,7 @@ intents:
   - vacation_period
   - customer_details
   - book_room
+  - check_availability
   - nearby_recommendation
   - thank
   - customer_status
@@ -43,11 +44,11 @@ actions:
   - action_confirm_vacation_period  #done
   - action_ask_customer_details   #done
   - action_confirm_customer_details  #done
-  #- action_ask_check_in_date   
-  #- action_check_in_date_confirmation
-  - action_check_availability
-  - action_check_availability_availability
-  - action_nearby_recommendations
+  - action_ask_check_in_date   #done
+  - action_check_availability_confirmation
+  - action_check_in_date_confirmation
+  - action_check_availability #done
+  - action_nearby_recommendations #done
   - action_confirm_customer_status   #done
   - action_ask_customer_status  #done
 
