@@ -1,0 +1,46 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey there
+
+- intent: book_room
+  examples: |
+    - I want to book a room
+    - Book a room for me
+    - Can I reserve a room?
+
+- intent: vacation_period
+  examples: |
+    - from December 1st to December 5th
+    - check availability from 2023-12-01 to 2023-12-05
+    - book for December 1 to December 5
+
+- intent: room_type
+  examples: |
+    - single
+    - dulex
+    - suite
+    - double
+
+- intent: customer_details
+  examples: |
+    - My name is John Doe
+    - I'm male
+    - I live in New York
+    - John Doe, Male, New York
+
+- intent: customer_status
+  examples: |
+    - I'm married
+    - I'm single
+    - married with 2 children
+    - single with 2 kids
+
+- intent: nearby_recommendation
+  examples: |
+    - recommend places nearby
+    - what's nearby
+    - any recommendations around here

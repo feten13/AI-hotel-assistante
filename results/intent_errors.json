@@ -1,0 +1,26 @@
+[
+  {
+    "text": "dulex",
+    "intent": "room_type",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.882818341255188
+    }
+  },
+  {
+    "text": "I'm married",
+    "intent": "customer_status",
+    "intent_prediction": {
+      "name": "customer_details",
+      "confidence": 0.47583696246147156
+    }
+  },
+  {
+    "text": "I'm single",
+    "intent": "customer_status",
+    "intent_prediction": {
+      "name": "room_type",
+      "confidence": 0.9706876873970032
+    }
+  }
+]

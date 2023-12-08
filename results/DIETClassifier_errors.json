@@ -1,0 +1,383 @@
+[
+  {
+    "text": "I want to book a [single] {\"entity\": \"room_type\"} room",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.5538471937179565,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Any [suites] {\"entity\": \"room_type\"} is available?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "room_type",
+        "start": 5,
+        "end": 11,
+        "confidence_entity": 0.8332732915878296,
+        "value": "suites",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Any single room available?",
+    "entities": [
+      {
+        "start": 4,
+        "end": 10,
+        "value": "single",
+        "entity": "room_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 4,
+        "end": 10,
+        "confidence_entity": 0.5201371312141418,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i wanna single one",
+    "entities": [
+      {
+        "start": 8,
+        "end": 14,
+        "value": "single",
+        "entity": "room_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 8,
+        "end": 14,
+        "confidence_entity": 0.5785207748413086,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'll be staying from [2023-12-17] (start_date) to 2023-12-22",
+    "entities": [
+      {
+        "start": 50,
+        "end": 60,
+        "value": "2023-12-22",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 21,
+        "end": 32,
+        "confidence_entity": 0.4409485161304474,
+        "value": "[2023-12-17",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 50,
+        "end": 60,
+        "confidence_entity": 0.6110303401947021,
+        "value": "2023-12-22",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "single , [no kids] ({\"entity\":\"children_count\")",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "single",
+        "entity": "marital_status"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.8380430340766907,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "children_count",
+        "start": 13,
+        "end": 17,
+        "confidence_entity": 0.5266242623329163,
+        "value": "kids",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i am single with no kids",
+    "entities": [
+      {
+        "start": 5,
+        "end": 11,
+        "value": "single",
+        "entity": "marital_status"
+      },
+      {
+        "start": 17,
+        "end": 24,
+        "value": "no kids",
+        "entity": "children_count"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 5,
+        "end": 11,
+        "confidence_entity": 0.66399747133255,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "children_count",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9140463471412659,
+        "value": "kids",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "check availability from 2023-12-01 to 2023-12-05",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 24,
+        "end": 34,
+        "confidence_entity": 0.525273323059082,
+        "value": "2023-12-01",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 38,
+        "end": 48,
+        "confidence_entity": 0.5869371294975281,
+        "value": "2023-12-05",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "book for December 1 to December 5",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 32,
+        "end": 33,
+        "confidence_entity": 0.5153441429138184,
+        "value": "5",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "single",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.5911460518836975,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "suite",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "room_type",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9758055210113525,
+        "value": "suite",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "double",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "room_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9953631162643433,
+        "value": "double",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm male",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gendre",
+        "start": 4,
+        "end": 8,
+        "confidence_entity": 0.9938858151435852,
+        "value": "male",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "John Doe, Male, New York",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gendre",
+        "start": 10,
+        "end": 14,
+        "confidence_entity": 0.993617057800293,
+        "value": "male",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm married",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 4,
+        "end": 11,
+        "confidence_entity": 0.9585644006729126,
+        "value": "Married",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm single",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "room_type",
+        "start": 4,
+        "end": 10,
+        "confidence_entity": 0.5580922365188599,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "married with 2 children",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.9891200065612793,
+        "value": "Married",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "single with 2 kids",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "marital_status",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.8323642611503601,
+        "value": "single",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "start_date",
+        "start": 12,
+        "end": 18,
+        "confidence_entity": 0.4907456040382385,
+        "value": "2 kids",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]
