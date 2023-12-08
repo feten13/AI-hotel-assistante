@@ -11,6 +11,43 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+
+#from rasa_sdk.events import SlotSet
+
+# class ActionExtractSlots(Action):
+#     def name(self) -> Text:
+#         return "action_extract_slots"
+
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         extracted_slots = []
+
+#         # Extracting slot from intent 'vacation_period'
+#         if tracker.latest_message['intent']['name'] == 'vacation_period':
+#             start_date_entity = next((e for e in tracker.latest_message['entities'] if e['entity'] == 'start_date'), None)
+#             end_date_entity = next((e for e in tracker.latest_message['entities'] if e['entity'] == 'end_date'), None)
+
+#             if start_date_entity:
+#                 extracted_slots.append(SlotSet('start_date', start_date_entity['value']))
+#             if end_date_entity:
+#                 extracted_slots.append(SlotSet('end_date', end_date_entity['value']))
+
+#         # Extracting slot from intent 'customer_details'
+#         elif tracker.latest_message['intent']['name'] == 'customer_details':
+#             gender_entity = next((e for e in tracker.latest_message['entities'] if e['entity'] == 'gendre'), None)
+#             name_entity = next((e for e in tracker.latest_message['entities'] if e['entity'] == 'name'), None)
+#             location_entity = next((e for e in tracker.latest_message['entities'] if e['entity'] == 'location'), None)
+
+#             if gender_entity:
+#                 extracted_slots.append(SlotSet('gendre', gender_entity['value']))
+#             if name_entity:
+#                 extracted_slots.append(SlotSet('name', name_entity['value']))
+#             if location_entity:
+#                 extracted_slots.append(SlotSet('location', location_entity['value']))
+
+#         # Add more conditions for other intents and slots as needed
+
+#         return extracted_slots
+
 #
 #
 #class ActionHelloWorld(Action):
@@ -71,7 +108,7 @@ class ActionConfirmVacationPeriod(Action):
         dispatcher.utter_message(f"You've chosen the vacation period from {start_date} to {end_date}.")
         return []
     
-from rasa_sdk.forms import FormAction
+#from rasa_sdk.forms import FormAction
 import pandas as pd 
 class ActionCheckAvailability(Action):
     #aden_calendre=pd.read_csv
@@ -85,20 +122,15 @@ class ActionCheckAvailability(Action):
         dispatcher.utter_message("Let me check our availability please.")
         
         return []    
-    
-
-from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
-
-import pandas as pd
-from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
 
 class ActionCheckAvailabilityConfirmation(Action):
-    aden_calendre = pd.read_csv("aden_calendre.csv")
+    #aden_calendre = pd.read_csv("aden_calendre.csv")
+    example_calendre_data = {
+        'dates': ['2023-12-10', '2023-12-15', '2023-12-20'],
+        'room': ['Single', 'Double', 'Suite']
+    }
 
+    aden_calendre = pd.DataFrame(example_calendre_data)
     def name(self) -> Text:
         return "action_check_availability_confirmation"
 
@@ -112,9 +144,10 @@ class ActionCheckAvailabilityConfirmation(Action):
         
         start_date = pd.to_datetime(start_date)
         end_date = pd.to_datetime(end_date)
+        self.aden_calendre['dates'] = pd.to_datetime(self.aden_calendre['dates'])
+        available_dates = self.aden_calendre['dates'].astype(str)
         
-        
-        if any((start_date <= date <= end_date) for date in self.aden_calendre['dates']):
+        if any((start_date <= date <= end_date) for date in available_dates):
             dispatcher.utter_message("Sorry, there is no available rooms in this date range.")
         else:
             
@@ -171,16 +204,6 @@ class ActionAskCustomerstatus(Action):
         dispatcher.utter_message("Can you tell me if your married , and if you have children with you ? ")
         return []
 
-class utter_greet(Action):
-    def name(self) -> Text:
-        return "utter_greet"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        responses = tracker.get_responses("utter_greet")    
-        dispatcher.utter_message(responses)
-        return []
 
 class ActionConfirmCustomerstatus(Action):
     def name(self) -> Text:
@@ -203,15 +226,32 @@ class ActionConfirmCustomerstatus(Action):
         return []    
     
 
-
-import pandas as pd
 import random
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+
+
+
+
+
+
+
+
+
+
 class ActionNearbyRecommendations(Action):
-    aden_recommendation = pd.read_csv("aden_recommendation.csv")
+    # Example structure for the aden_recommendation CSV file
+    example_recommendation_data = {
+        'column_containing_recommendations': [
+            'Visit the local museum.',
+            'Explore nearby parks.',
+            'Try popular restaurants in the area.'
+        ]
+    }
+
+    aden_recommendation = pd.DataFrame(example_recommendation_data)
 
     def name(self) -> Text:
         return "action_nearby_recommendations"
@@ -221,7 +261,6 @@ class ActionNearbyRecommendations(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         dispatcher.utter_message("Sure, I can help you with nearby recommendations.")
-        
         
         recommendation = random.choice(self.aden_recommendation['column_containing_recommendations'])
         

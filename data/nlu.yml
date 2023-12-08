@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,8 +15,21 @@ nlu:
     - goodevening
     - good afternoon
     - whatsup
-    
-
+    - howdy
+    - whassup
+    - wazzup
+    - yooo
+    - hii
+    - heyy
+    - oi
+    - hai
+    - hallo
+    - salut
+    - ciao
+    - hy
+    - slu
+    - stop
+    - hllo
 - intent: goodbye
   examples: |
     - cu
@@ -30,7 +42,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
+    - ok goodbye
 - intent: affirm
   examples: |
     - yes
@@ -39,7 +51,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -51,85 +62,69 @@ nlu:
     - not really
 - intent: thank
   examples: |
-    - thank you 
+    - thank you
     - thanks
     - appreciate it
     - great, thanks!
     - okay, thanks.
-  
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
-
-     
 - intent: room_type
   examples: |
-    - I want to book a [deluxe]{"entity": "room_type"} room
+    - I want to book a [deluxe](room_type) room
     - I want to book a [single] {"entity": "room_type"} room
     - Any [suites] {"entity": "room_type"} is available?
-    - Any single room available?
-
+    - Any [single](room_type) room available?
+    - Can I get a [suite](room_type)?
+    - Do you have any [suites](room_type) available?
+    - Is there a [double](room_type) room available?
+    - Are there any rooms with extra beds available?
+    - Any [suites](room_type) ?
+    - i want [single](room_type)
+    - i wanna [single](room_type) one
+    - i wanna a [double](room_type)
+    - i want a [double](room_type) room
 - intent: vacation_period
   examples: |
-    - I'll be staying from [start_date] (start_date)  to [end_date](end_date)
+    - I'll be staying from [2023-12-17] (start_date) to [2023-12-22](end_date)
     - What's the availability from [June 1st] {"entity": "start_date"} to [June 7th] {"entity": "end_date"}?
-    - What's the availability [start_date](start_date) to [end_date](end_date)
-
+    - What's the availability [2023/02/10](start_date) to [2023/01/10](end_date)
+    - What's the availability from [2023-12-10](start_date) to [2023-12-14](end_date)
+    - What's the availability from [2023/07/08](start_date) to [2023/08/22](end_date) ?
+    - What's the availability [2023/01/10](start_date) to [2023/01/15](end_date)
+    - What's the availability from [2023-02-1](start_date) to [2023-02-14](end_date)
+    - What's the availability from [2023/10/08](start_date) to [2023/11/22](end_date) ?
+    - What's the availability from [2023/07/15](start_date) to [2023/08/20](end_date)
 - intent: customer_details
   examples: |
-    - I'm a [gendre](gendre), My name is [name](name), and I'm from [location](location)
-    - I'm from [location](location), I'm a [gendre](gendre), My name is [name](name)
-    - I'm [name](name), a [gendre](gendre), I live in [location](location)
+    - I'm a [male](gendre), My name is [yassine](name), and I'm from [jemmel](location)
+    - I'm from [wahran](location), I'm a [female](gendre), My name is [nourhenw](name)
+    - I'm [lina](name), a [female](gendre), I live in [london](location)
+    - I'm a [male](gendre), My name is [lion](name), and I'm from [frensh](location)
+    - I'm from [palastine](location), I'm a [female](gendre), My name is [saoirse](name)
+    - I'm [mouhammed](name), a [male](gendre), I live in [suria](location)
+    - i am [feten](name) , a [female](gendre), and i am from [monastire](location)
 - intent: customer_status
   examples: |
-    - [Married](marital_status) with [number] (children_count) children
-    - [single](marital_status) , [no kids] (children_count==0)
-    - [divorced](marital_status) with [number] (children_count) children
+    - [Married](marital_status) with [2] (children_count) children
+    - [single](marital_status) , [no kids] ({"entity":"children_count")
+    - [single](marital_status) with [one] (children_count) child
+    - [merried](marital_status) with [a] (children_count) child
+    - [single](marital_status) with [four] (children_count) children
+    - [merried](marital_status) with [8] (children_count) child
+    - i am [single](marital_status) with [no kids](children_count)
 - intent: book_room
   examples: |
     - I want to book a room
     - Can I reserve a room?
-
-- intent: nearby_recommendation 
+    - i want a room
+    - can i reserve i room
+    - i wanna a room
+- intent: nearby_recommendation
   examples: |
     - what historical monimens near aden hotel
     - could you recommend me good locations near the hotel

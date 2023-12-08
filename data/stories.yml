@@ -10,14 +10,16 @@ stories:
 - story: Book a room with details
   steps:
   - intent: book_room #done
-  - action: action_ask_check_in_date #done
   - action: action_ask_vacation_period #done
+  - action: action_listen
   - intent: vacation_period #done
   - slot_was_set:
     - start_date: "2023-12-01"
     - end_date: "2023-12-05"
+  #- action: action_extract_slots  
   - action: action_confirm_vacation_period #done
   - action: action_ask_room_type #done
+  - action: action_listen
   - intent: room_type #done
   - or: 
     - slot_was_set:
@@ -25,18 +27,24 @@ stories:
     - slot_was_set: 
       - room_type: "dulex"
     - slot_was_set: 
-      - room_type: "suite"  
+      - room_type: "suite" 
+    - slot_was_set: 
+      - room_type: "double"    
+  #- action: action_extract_slots    
   - action: action_confirm_room_type  
   - action: action_check_availability #done
-  - action: action_check_availability_confirmation
+  - action: action_check_availability_confirmation #done
   - action: action_ask_customer_details #done
+  - action: action_listen
   - intent: customer_details #done
   - slot_was_set:
     - gendre: "Male"
     - name: "John Doe"
     - location: "New York"
+  #- action: action_extract_slots  
   - action: action_confirm_customer_details
   - action: action_ask_customer_status
+  - action: action_listen
   - intent: customer_status
   - or:
       - slot_was_set:
@@ -58,3 +66,5 @@ stories:
   steps:
   - intent: nearby_recommendation #done
   - action: action_nearby_recommendations #done
+
+

@@ -1,65 +1,64 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - room_type
-  - vacation_period
-  - customer_details
-  - book_room
-  - check_availability
-  - nearby_recommendation
-  - thank
-  - customer_status
-
+- affirm
+- book_room
+- bot_challenge
+- customer_details
+- customer_status
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- nearby_recommendation
+- room_type
+- thank
+- vacation_period
 responses:
   utter_greet:
-    - text: " Welcome! How can i help you?"
-
+  - text: ' Welcome! How can i help you?'
   utter_cheer_up:
-    - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
-    - text: "Did that help you?"
-
+  - text: Did that help you?
   utter_happy:
-    - text: "Great, carry on!"
-
+  - text: Great, carry on!
   utter_goodbye:
-    - text: "Bye"
-
+  - text: Bye
   utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
-
+  - text: I am a bot, powered by Rasa.
+entities:
+- start_date
+- location
+- room_type
+- end_date
+- name
+- marital_status
+- gendre
+- children_count
+- '"end_date"'
+- '"start_date"'
 actions:
-  - action_ask_room_type  #done 
-  - action_confirm_room_type #done
-  - action_ask_vacation_period  #done
-  - action_confirm_vacation_period  #done
-  - action_ask_customer_details   #done
-  - action_confirm_customer_details  #done
-  - action_ask_check_in_date   #done
-  - action_check_availability_confirmation
-  - action_check_in_date_confirmation
-  - action_check_availability #done
-  - action_nearby_recommendations #done
-  - action_confirm_customer_status   #done
-  - action_ask_customer_status  #done
-
+- action_confirm_room_type
+- action_ask_vacation_period
+- action_ask_customer_status
+- utter_greet
+- action_ask_customer_details
+- action_nearby_recommendations
+- action_confirm_vacation_period
+- action_confirm_customer_details
+- action_check_availability_confirmation
+- action_confirm_customer_status
+- action_ask_room_type
+- utter_goodbye
+- action_check_availability
 slots:
-
   start_date:
     type: text
     mappings:
     - type: from_entity
       entity: start_date
-
   end_date:
     type: text
     mappings:
@@ -72,7 +71,7 @@ slots:
       value: my_value
       entity: gendre
   name:
-    type : text
+    type: text
     mappings:
     - type: from_entity
       value: my_value
@@ -95,13 +94,12 @@ slots:
     - type: from_entity
       value: my_value
       entity: children_count
-  room_type: 
+  room_type:
     type: text
     mappings:
     - type: from_entity
       value: my_value
       entity: room_type
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

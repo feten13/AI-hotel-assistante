@@ -2,42 +2,28 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Say hello anytime the user says hello
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: greet
+  - action: utter_greet
+
+
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Activate room_type
-  steps:
-  - intent: room_type
-  - action: action_ask_room_type
 
-- rule: Activate vacation_period
-  steps:
-  - intent: vacation_period
-  - action: action_ask_vacation_period
-
-- rule: Activate customer_details
-  steps:
-  - intent: customer_details
-  - action: action_ask_customer_details  
-
-- rule: Activate book_room
-  steps:
-  - intent: book_room
-  - action: action_ask_check_in_date
-
-- rule: Activate check_availability
-  steps:
-  - intent: check_availability
-  - action: action_check_availability
 
 - rule: Activate nearby_recommendation
   steps:
   - intent: nearby_recommendation
   - action: action_nearby_recommendations
+
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+

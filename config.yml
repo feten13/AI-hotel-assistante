@@ -63,13 +63,15 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 100
+    epochs: 50
+    constrain_similarities: true
   - name: EntitySynonymMapper
 
 policies:
   - name: MemoizationPolicy
   - name: TEDPolicy
-    max_history: 5
-    epochs: 100
+    max_history: 10
+    epochs: 50
+    constrain_similarities: true
   - name: RulePolicy
   #- name: FormPolicy
